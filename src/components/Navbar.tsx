@@ -39,7 +39,7 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link href={"/"} className="btn dark:text-white">Login</Link>
+                <Link href={"/auth/login"} className="btn dark:text-white">Login</Link>
             </div>
         </div>
     )
