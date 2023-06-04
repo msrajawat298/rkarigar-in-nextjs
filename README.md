@@ -71,6 +71,7 @@ More Functionality will be added with time
 - joi validation
 - mongoDB
 - React Query
+- NextAuth
 
 ## Environment Variables
 
