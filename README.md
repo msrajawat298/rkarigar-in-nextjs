@@ -16,10 +16,10 @@
 
 
 #### multi User Login System
-- SignIn / SignUp (TODO)
-- Forget Password (TODO)
-- JWT validation on each Authorized Request (TODO)
-- Authorization validation for Admin Access and Customer Access (TODO)
+- SignIn / SignUp ✔
+- Forget Password ✔
+- JWT validation on each Authorized Request ✔
+- Authorization validation for Admin Access and Customer Access ✔
 
 # Service Provide Panel
 - Add a service category (TODO)
