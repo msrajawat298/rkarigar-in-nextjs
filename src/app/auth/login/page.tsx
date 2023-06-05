@@ -1,5 +1,7 @@
 "use client"
+import { login_user } from '@/services/auth';
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useForm, SubmitHandler, set } from "react-hook-form";
 import { toast, ToastContainer } from 'react-toastify';
@@ -12,7 +14,7 @@ interface Inputs {
 
 
 export default function Page() {
-
+  const Router = useRouter();
   const [loader, setLoader] = useState(false)
   const { register, formState: { errors }, handleSubmit } = useForm<Inputs>({
     criteriaMode: "all"
@@ -20,10 +22,17 @@ export default function Page() {
 
   const onSubmit: SubmitHandler<Inputs> = async data => {
     setLoader(true)
-    setTimeout(() => {
-      console.log(data)
+    const res =  await login_user(data);
+    if(res?.success) {
+      toast.success(res?.message)
       setLoader(false)
-    }, 3000);
+      setTimeout(() => {
+        Router.push('/')
+      }, 1000)
+    }else {
+      toast.error(res?.message)
+      setLoader(false)
+    }
   }
 
 
@@ -58,11 +67,11 @@ export default function Page() {
                 <Link href="/auth/reset" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</Link>
               </div>
               {
-                loader ? <button className=" w-full btn btn-neutral text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center "> <span className="loading loading-spinner"></span> Creating Account Hold Tight ! </button> : <button type="submit" className="w-full btn btn-neutral text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Sign In</button>
+                loader ? <button className=" w-full btn btn-neutral text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center "> <span className="loading loading-spinner"></span> Verifying Credientials ! </button> : <button type="submit" className="w-full btn btn-neutral text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Sign In</button>
               }
 
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Dont have an account? <Link href="/auth/register" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign In</Link>
+                Dont have an account? <Link href="/auth/register" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign Up</Link>
               </p>
             </form>
           </div>

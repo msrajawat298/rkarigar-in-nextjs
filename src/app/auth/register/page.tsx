@@ -1,6 +1,8 @@
 "use client"
 
+import { register_user } from '@/services/auth';
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useForm, SubmitHandler, set } from "react-hook-form";
 import { toast, ToastContainer } from 'react-toastify';
@@ -14,6 +16,7 @@ interface Inputs {
 }
 
 export default function Page() {
+  const Router = useRouter();
   const [loader, setLoader] = useState(false)
   const { register, formState: { errors }, handleSubmit } = useForm<Inputs>({
     criteriaMode: "all"
@@ -21,10 +24,17 @@ export default function Page() {
 
   const onSubmit: SubmitHandler<Inputs> = async data => {
     setLoader(true)
-    setTimeout(() => {   
-      console.log(data)
+    const res =  await register_user(data);
+    if(res?.success) {
+      toast.success(res?.message)
       setLoader(false)
-    }, 3000);
+      setTimeout(() => {
+        Router.push('/auth/login')
+      }, 1000)
+    }else {
+      toast.error(res?.message)
+      setLoader(false)
+    }
   }
 
   return (
