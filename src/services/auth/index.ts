@@ -1,4 +1,7 @@
 
+//  setting up okay with the backend
+
+
 export const register_user = async (formData : any) => {
     try {
         const res =  await fetch("/api/auth/register",{
