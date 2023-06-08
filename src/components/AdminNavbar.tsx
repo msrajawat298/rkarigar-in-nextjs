@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-export default function Navbar() {
+export default function AdminNavbar() {
     return (
         <div className="navbar fixed top-0 left-0 z-50 bg-slate-950 text-white ">
         <div className="navbar-start">
@@ -39,7 +39,7 @@ export default function Navbar() {
             </ul>
         </div>
         <div className="navbar-end">
-            <Link href={"/auth/login"} className="btn dark:text-white">Login</Link>
+            <Link href={"/auth/login"} className="btn dark:text-white">Logout</Link>
         </div>
     </div>
     )

@@ -13,6 +13,7 @@ const schema = Joi.object({
 
 
 export async function POST(req: Request) {
+    console.log('got hit ')
     await connectDB();
 
 
