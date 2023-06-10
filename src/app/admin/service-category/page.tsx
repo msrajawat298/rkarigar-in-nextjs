@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { MdCategory } from 'react-icons/Md'
+import { MdCategory } from 'react-icons/md'
 import ServiceCategories from '@/components/ServiceCategories'
 
 export default function Page() {

@@ -1,8 +1,7 @@
 import React from 'react'
-import { MdCategory } from 'react-icons/Md'
-import { FcServices } from 'react-icons/Fc'
-import { GrCompliance } from 'react-icons/Gr'
-import { MdPendingActions } from 'react-icons/Md'
+import { MdCategory , MdPendingActions } from 'react-icons/md'
+import { FcServices } from 'react-icons/fc'
+import { GrCompliance } from 'react-icons/gr'
 import Link from 'next/link'
 
 
