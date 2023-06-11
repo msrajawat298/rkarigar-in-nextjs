@@ -7,7 +7,7 @@ export default function Page() {
     return (
         <div className='w-full h-screen bg-slate-950  flex items-center  flex-col'>
 
-            <div className="text-sm w-full text-white py-3 px-2 border-b-indigo-600 border-b breadcrumbs">
+            <div className="text-sm w-full text-white py-3 px-2 border-b-white border-b breadcrumbs">
                 <ul>
                     <li>
                         <Link href='/admin/dashboard'>
@@ -22,7 +22,7 @@ export default function Page() {
                 </ul>
             </div>
             <div className='w-full py-3 px-4 flex items-center justify-end'>
-                <button className='btn btn-primary'>Add Service Category</button>
+                <Link href={"/admin/service-category//add-service-category"} className='btn '>Add Service Category</Link>
             </div>
             <div className='w-10/12  h-4/6 '>
                 <ServiceCategories />

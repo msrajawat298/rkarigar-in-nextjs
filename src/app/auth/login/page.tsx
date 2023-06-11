@@ -1,5 +1,6 @@
 "use client"
 import { login_user } from '@/services/auth';
+import Cookies from 'js-cookie';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
@@ -25,6 +26,8 @@ export default function Page() {
     const res =  await login_user(data);
     if(res?.success) {
       toast.success(res?.message)
+      Cookies.set('token', res?.finalData?.token)
+      Cookies.set('user', JSON.stringify(res?.finalData?.user))
       setLoader(false)
       setTimeout(() => {
         Router.push('/')

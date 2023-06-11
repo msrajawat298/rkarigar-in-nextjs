@@ -25,7 +25,7 @@ export default function Navbar() {
         </div>
         <div className="navbar-center hidden lg:flex">
             <ul className="menu   menu-horizontal px-1">
-                <li><Link href={"/"}>Item 1</Link></li>
+                <li><Link href={"/admin/dashboard"}>Dashboard</Link></li>
                 <li tabIndex={0}>
                     <details>
                         <summary>Parent</summary>
