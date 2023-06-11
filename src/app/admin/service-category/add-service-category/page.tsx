@@ -10,6 +10,7 @@ import { add_service_category } from '@/services/servicecategory'
 import { storage } from '@/utils/connectorFire'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import Cookies from 'js-cookie'
+import { UserType } from '@/types/ReuseTypes'
 
 
 type Inputs = {
@@ -65,8 +66,14 @@ export default function Page() {
     const Router = useRouter();
 
 
-    useEffect(() => {
-        Cookies.get('token') === undefined && Router.push('/admin/login')
+
+    React.useEffect(() => {
+        const token = Cookies.get('token')
+        const user = Cookies.get('user') as undefined | UserType
+        const isNotAdmin = user?.role !== "admin"
+        if (!isNotAdmin || !token) {
+            Router.push('/')
+        }
     }, [])
 
 
@@ -116,7 +123,7 @@ export default function Page() {
     return (
         <div className='w-full h-screen text-white bg-slate-950  flex items-center  flex-col'>
 
-            <div className="text-sm w-full text-white py-3 px-2 border-b-white border-b breadcrumbs">
+            <div className="text-sm w-full overflow-hidden text-white py-3 px-2 border-b-white border-b breadcrumbs">
                 <ul>
                     <li>
                         <Link href='/admin/dashboard'>

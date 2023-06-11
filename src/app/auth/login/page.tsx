@@ -30,7 +30,8 @@ export default function Page() {
       Cookies.set('user', JSON.stringify(res?.finalData?.user))
       setLoader(false)
       setTimeout(() => {
-        Router.push('/')
+        if(res?.finalData?.user?.role === 'admin') Router.push('/admin/dashboard')
+        else Router.push('/')
       }, 1000)
     }else {
       toast.error(res?.message)

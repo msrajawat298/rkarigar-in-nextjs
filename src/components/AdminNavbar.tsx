@@ -1,7 +1,17 @@
+
+
 import React from 'react'
 import Link from 'next/link'
+import Cookies from 'js-cookie'
 
 export default function AdminNavbar() {
+   
+    const logoutUser = () => {
+        Cookies.remove('token')
+        Cookies.remove('user')
+        window.location.href = '/'
+    }
+
     return (
         <div className="navbar fixed top-0 left-0 z-50 bg-slate-950 text-white ">
         <div className="navbar-start">
@@ -39,7 +49,7 @@ export default function AdminNavbar() {
             </ul>
         </div>
         <div className="navbar-end">
-            <Link href={"/auth/login"} className="btn dark:text-white">Logout</Link>
+            <button onClick={logoutUser} className="btn dark:text-white">Logout</button>
         </div>
     </div>
     )
