@@ -14,7 +14,7 @@ interface Props {
 
 export default function Tile({ icon, title, path} : Props) {
   return (
-    <Link href={`${path}`} className='w-96  h-40 m-4 bg-gray-50 text-black dark:text-white flex-col rounded flex items-center justify-center '>
+    <Link href={`${path}`} className='w-96   h-40 m-4 bg-gray-50 text-black  flex-col rounded flex items-center justify-center '>
         {icon === 'MdCategory' && <MdCategory className='w-20 h-20 text-gray-900' />}
         {icon === 'FcServices' && <FcServices className='w-20 h-20 text-gray-900' />}
         {icon === 'GrCompliance' && <GrCompliance className='w-20 h-20 text-gray-900' />}

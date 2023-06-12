@@ -5,8 +5,6 @@ import Tile from '@/components/Tile'
 import React from 'react'
 import { TilesData } from '@/data/tileData'
 import Cookies from 'js-cookie'
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { UserType } from '@/types/ReuseTypes'
 

@@ -49,7 +49,7 @@ export default function AdminNavbar() {
             </ul>
         </div>
         <div className="navbar-end">
-            <button onClick={logoutUser} className="btn dark:text-white">Logout</button>
+            <button onClick={logoutUser} className="btn  dark:text-white">Logout</button>
         </div>
     </div>
     )

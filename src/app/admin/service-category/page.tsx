@@ -2,8 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import { MdCategory } from 'react-icons/md'
 import ServiceCategories from '@/components/ServiceCategories'
+import { get_all_service_category } from '@/services/servicecategory'
+import { ServiceCategoryType } from '@/types/ReuseTypes'
 
-export default function Page() {
+
+export default async function  Page() {
+    const serviceCategory = await get_all_service_category() as ServiceCategoryType[]
     return (
         <div className='w-full h-screen bg-slate-950  flex items-center  flex-col'>
 
@@ -25,7 +29,7 @@ export default function Page() {
                 <Link href={"/admin/service-category//add-service-category"} className='btn '>Add Service Category</Link>
             </div>
             <div className='w-10/12  h-4/6 '>
-                <ServiceCategories />
+                <ServiceCategories serviceCategoryData={serviceCategory} />
             </div>
         </div>
     )

@@ -4,3 +4,14 @@ export interface UserType {
     email: string
     _id: string
 }
+
+
+export interface ServiceCategoryType {
+    _id: string
+    name: string
+    description: string
+    image: string
+}
+
+
+

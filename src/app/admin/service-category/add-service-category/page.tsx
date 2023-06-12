@@ -138,7 +138,7 @@ export default function Page() {
                 </ul>
             </div>
             <div className='w-full h-20 my-2 text-center'>
-                <h1 className='text-2xl py-2 dark:text-black'>Add Category</h1>
+                <h1 className='text-2xl py-2 dark:text-white text-black '>Add Category</h1>
             </div>
             <div className='w-full px-4 h-full flex items-start justify-center'>
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg  py-2 flex-col ">
@@ -146,14 +146,14 @@ export default function Page() {
                         <label className="label">
                             <span className="label-text text-white">Category Name</span>
                         </label >
-                        <input {...register("name", { required: true })} type="text" placeholder="Type here" className="input input-bordered text-black w-full" />
+                        <input {...register("name", { required: true })} type="text" placeholder="Type here" className="input input-bordered dark:text-white text-black w-full" />
                         {errors.name && <span className='text-red-500 text-xs mt-2'>This field is required</span>}
                     </div >
                     <div className="form-control mb-2">
                         <label className="label">
                             <span className="label-text text-white">Category Description</span>
                         </label>
-                        <textarea  {...register("description", { required: true })} className="textarea textarea-bordered text-black h-24" placeholder="Description"></textarea>
+                        <textarea  {...register("description", { required: true })} className="textarea textarea-bordered dark:text-white text-black  h-24" placeholder="Description"></textarea>
                         {errors.description && <span className='text-red-500 text-xs mt-2'>This field is required</span>}
 
                     </div>
@@ -161,7 +161,7 @@ export default function Page() {
                         <label className="label">
                             <span className="label-text text-white">Add Category Image</span>
                         </label>
-                        <input accept="image/*" max="1000000"  {...register("image", { required: true })} type="file" className="file-input file-input-bordered w-full text-black" />
+                        <input accept="image/*" max="1000000"  {...register("image", { required: true })} type="file" className="file-input file-input-bordered w-full dark:text-white text-black " />
                         {errors.image && <span className='text-red-500 text-xs mt-2'>This field is required and the image must be less than or equal to 1MB.</span>}
 
                     </div>

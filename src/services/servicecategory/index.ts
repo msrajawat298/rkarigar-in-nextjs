@@ -20,3 +20,16 @@ export const add_service_category = async (formData : any) => {
 
    
 }
+
+
+export const get_all_service_category = async () => {
+    try {
+        const res = await fetch(`${process.env.URL}/api/admin/service-category/get-all-services`, {
+            method: 'GET',
+        });
+        const data = await res.json();
+        return data?.data;
+    } catch (error) {
+        console.log('Error while calling getting All Categories API (services)' + error);
+    }
+}
