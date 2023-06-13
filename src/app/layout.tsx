@@ -2,10 +2,12 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import 'react-toastify/dist/ReactToastify.css';
 const inter = Inter({ subsets: ['latin'] })
+import { Providers } from '@/provider/provider';
 
 export const metadata = {
-  title: 'lOCALPRO',
-  description: 'Developer Abdullah Moiz',
+  title: 'LOCALPRO Next App',
+  description: 'Developed by Abdullah Moiz',
+  authors: [{ name: "Abdullah Moiz", url: 'https://abdullahmoiz.vercel.app/' }],
 }
 
 export default function RootLayout({
@@ -15,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }

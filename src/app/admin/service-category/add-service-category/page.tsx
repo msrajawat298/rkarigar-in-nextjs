@@ -35,7 +35,7 @@ const uploadImages = async (file: File) => {
     }
 
     const fileName = createFileName();
-    const storageRef = ref(storage, `ecommerce/category/${fileName}`);
+    const storageRef = ref(storage, `ecommerce/localPro/${fileName}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     return new Promise((resolve, reject) => {
