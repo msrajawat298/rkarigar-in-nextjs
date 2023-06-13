@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { serviceCategoryReducer } from '@/slices/ServiceCatSlice';
 import { configureStore } from '@reduxjs/toolkit'
