@@ -1,5 +1,6 @@
 'use client'
 
+
 import AdminNavbar from '@/components/AdminNavbar'
 import Tile from '@/components/Tile'
 import React from 'react'
@@ -7,10 +8,16 @@ import { TilesData } from '@/data/tileData'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import { UserType } from '@/types/ReuseTypes'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { get_all_service_category } from '@/services/servicecategory'
+import { useDispatch } from 'react-redux'
+import { setserviceCategory } from '@/slices/ServiceCatSlice'
 
 
 export default function Page() {
   const Router = useRouter();
+  const queryClient = useQueryClient()
+  const dispatch = useDispatch()
 
 
   React.useEffect(() => {
@@ -22,6 +29,25 @@ export default function Page() {
       Router.push('/')
     }
   }, [])
+
+
+
+  const { data , isError , isFetched , isLoading } =  useQuery({
+    queryKey: ['servicesCategories'],
+    queryFn: get_all_service_category,
+  })
+
+  console.log(data)
+
+  React.useEffect(() => {
+    if (data) {
+      dispatch(setserviceCategory(data))
+    }
+  }, [data])
+
+
+
+
 
   return (
     <div className='w-full  md:h-screen bg-slate-950 text-white flex items-center justify-center'>

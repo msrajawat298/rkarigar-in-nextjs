@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { ServiceCategoryType } from '@/types/ReuseTypes';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
 
 
 
@@ -12,11 +13,10 @@ interface ServiceCategoriesProps {
 
 
 export default function ServiceCategories({ serviceCategoryData }: ServiceCategoriesProps) {
-    const data = serviceCategoryData
+    const data = useSelector((state: any) => state.ServiceCategory.serviceCategoryData) as ServiceCategoryType[]
     const [thisTableData, setThisTableData] = useState<ServiceCategoryType[] | []>([]);
     const [search, setSearch] = useState('');
     const [filteredData, setFilteredData] = useState<ServiceCategoryType[] | []>([]);
-
 
     useEffect(() => {
         setThisTableData(data)

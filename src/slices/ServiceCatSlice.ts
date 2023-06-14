@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 interface Data {
-    serviceCategory: [];
+    serviceCategoryData: [];
 }
 
 
 const initialState: Data = {
-    serviceCategory: [],
+    serviceCategoryData: [],
 }
 
 
@@ -16,7 +16,7 @@ export const serviceCategorySlice = createSlice({
     initialState,
     reducers: {
         setserviceCategory: (state, action) => {
-            state.serviceCategory =  action.payload
+            state.serviceCategoryData =  action.payload
         },
     },
 })
