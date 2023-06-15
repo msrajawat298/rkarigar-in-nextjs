@@ -22,11 +22,11 @@
 - Authorization validation for Admin Access and Customer Access ✔
 
 # Service Provide Panel
-- Add a service category (TODO)
-- View service categories (TODO)
-- Update service categories (TODO)
-- Delete service categories (TODO)
-- Search service categories (TODO)
+- Add a service category ✔
+- View service categories ✔
+- Update service categories ✔
+- Delete service categories ✔
+- Search service categories ✔
 - Add a service (TODO)
 - View services (TODO)
 - Update services (TODO)
